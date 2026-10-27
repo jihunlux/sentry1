@@ -60,12 +60,19 @@
 @media(max-width:900px){.sensor-guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dashboard-grid{grid-template-columns:1fr}.detail-grid-inner{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.sensor-guide-grid{grid-template-columns:1fr}.guide-card p{min-height:0}.detail-grid-inner{grid-template-columns:1fr 1fr}.inline-detail-inner{padding:13px}.optional-detail{grid-template-columns:1fr}.optional-detail small{grid-column:auto}.reagent-item{padding:14px 10px;gap:7px}.reagent-badge{font-size:9px;padding:4px 7px}}
 
-/* SENTRY homepage sensor summary and status colors */
-.sensor-summary-strip{margin-top:18px;padding:18px 20px;border:1px solid var(--line);border-radius:13px;background:#F5F8FC;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;color:#52677F;font-size:12px}
-.sensor-summary-strip strong{color:var(--text);font-size:13px}
-.sensor-summary-strip small{flex-basis:100%;color:var(--muted);font-size:10px}
-.reagent-badge.badge-good{background:#E5F5EF;color:#23795F}
-.reagent-badge.badge-bad{background:#FCEBE9;color:#B34440}
-.review-dot{background:#C84E49!important}
-.status-good{background:#E5F5EF!important;color:#23795F!important}
-.status-bad{background:#FCEBE9!important;color:#B34440!important}
+/* Clean, compact sensor guide — visually aligned with the SENTRY dashboard */
+.sensor-guide{max-width:none;padding:54px max(5.5vw,24px) 58px;background:#F7F9FC;border-top:1px solid var(--line)}
+.sensor-guide>.section-heading,.sensor-guide>.sensor-guide-grid{max-width:1320px;margin-left:auto;margin-right:auto}
+.sensor-guide .section-heading{margin-bottom:22px}
+.sensor-guide .section-heading h2{font-size:25px}
+.sensor-guide-grid{gap:16px}
+.guide-card{position:relative;padding:21px 20px 19px;border-radius:14px;border-color:#E5EBF3;box-shadow:0 5px 18px rgba(41,66,101,.035);min-width:0}
+.guide-icon{width:42px;height:42px;border-radius:12px;background:#E9F0F9;color:#587CA8;font-weight:650;margin-bottom:15px}
+.guide-card h3{font-size:14px;margin:0 0 7px;letter-spacing:-.2px}
+.guide-card p{font-size:11px;line-height:1.75;min-height:58px;margin-bottom:14px;color:#748398}
+.guide-card small{display:inline-block;font-size:9px;font-weight:650;color:#617FA5;background:#F0F4FA;padding:5px 8px;border-radius:6px}
+.sensor-guide-grid .guide-card:nth-child(2) .guide-icon{background:#E9F5F1;color:#39806D}
+.sensor-guide-grid .guide-card:nth-child(3) .guide-icon{background:#EEF0FA;color:#6979A8}
+.sensor-guide-grid .guide-card:nth-child(4) .guide-icon{background:#F7F0E8;color:#A8794A}
+@media(max-width:620px){.sensor-guide{padding:42px 20px}.sensor-guide .section-heading h2{font-size:23px}.guide-card{padding:18px}.guide-card p{min-height:0}}
+.review-dot{background:#C94E49}
