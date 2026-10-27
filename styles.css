@@ -36,3 +36,26 @@
 
 /* SENTRY dashboard simulated sensor details */
 .simulated-label{font-size:11px;color:#6689B8;background:#E8EFF8;padding:7px 10px;border-radius:8px;margin:8px 0 14px}.detail-subtitle{margin:18px 0 8px;font-size:13px}.optional-detail-list{display:grid;gap:8px}.optional-detail{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:11px;border:1px solid var(--line);border-radius:10px;background:#fbfcfe}.optional-detail span{font-size:11px;color:var(--blue-dark)}.optional-detail small{grid-column:1/-1;color:var(--muted)}
+
+/* SENTRY dashboard details and sensor guide refinements */
+.sensor-guide{padding-top:46px;padding-bottom:56px;border-top:1px solid var(--line);background:#fff}
+.sensor-guide-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.guide-card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:22px;box-shadow:var(--shadow)}
+.guide-icon{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--blue-soft);color:var(--blue-dark);font-size:21px;margin-bottom:13px}
+.guide-card h3{margin:0 0 8px;font-size:15px}.guide-card p{color:var(--muted);font-size:12px;line-height:1.8;min-height:66px;margin:0 0 12px}.guide-card small{font-size:10px;color:var(--blue-dark)}
+.stats-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.reagent-wrap{border-bottom:1px solid var(--line)}.reagent-wrap:last-child{border-bottom:0}
+.reagent-item{display:flex;align-items:center;gap:12px;padding:17px 18px;background:white;border:0;cursor:pointer;color:var(--text);transition:background .2s}
+.reagent-item:hover,.reagent-item.selected{background:#F4F7FC}.reagent-item>div{flex:1;min-width:0}.reagent-item b{display:block;font-size:14px}.reagent-item small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.reagent-badge{white-space:nowrap;border-radius:20px;padding:5px 10px;font-size:10px;font-weight:700}.badge-good,.status-good{background:#E4F5EE;color:#247A61}.badge-bad,.status-bad{background:#FCEBE9;color:#B34D48}.expand-chevron{color:var(--muted);font-size:17px;width:18px;text-align:center}
+.inline-detail{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .42s ease,opacity .32s ease;background:#F8FAFD}
+.inline-detail.expanded{grid-template-rows:1fr;opacity:1}.inline-detail[hidden]{display:none}
+.inline-detail-inner{min-height:0;overflow:hidden;padding:20px;border-top:1px solid var(--line)}
+.detail-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:17px}.detail-top h3{margin:0 0 8px;font-size:17px}.detail-top h3 small{font-weight:500;color:var(--muted);font-size:12px}.status-pill{display:inline-block;border-radius:20px;padding:4px 9px;font-size:10px;font-weight:700}.simulated-label{color:#9A7542;font-size:10px}
+.detail-grid-inner{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.detail-grid-inner>div{background:white;border:1px solid var(--line);border-radius:11px;padding:13px;min-width:0}
+.detail-grid-inner small{display:block;color:var(--muted);font-size:10px;margin-bottom:5px}.detail-grid-inner b{display:block;font-size:14px;overflow-wrap:anywhere}.detail-grid-inner em{display:block;font-size:10px;font-style:normal;margin-top:5px}.good-text{color:#278468}.bad-text{color:#B34D48}
+.detail-subtitle{margin:20px 0 10px;font-size:13px}.optional-detail-list{display:grid;gap:8px}.optional-detail{display:grid;grid-template-columns:130px 1fr;gap:3px 12px;background:white;border:1px solid var(--line);border-radius:10px;padding:12px}.optional-detail b{font-size:12px}.optional-detail span{font-size:11px;color:var(--blue-dark)}.optional-detail small{grid-column:1/-1;color:var(--muted);font-size:10px}
+.review-item{display:flex;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}.review-item:last-child{border-bottom:0}.review-item b{font-size:13px}.review-item p{font-size:11px;color:var(--muted);margin:4px 0 0}.review-dot{width:9px;height:9px;background:#C66A60;border-radius:50%;margin-top:7px;flex-shrink:0}
+@media(max-width:900px){.sensor-guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dashboard-grid{grid-template-columns:1fr}.detail-grid-inner{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.sensor-guide-grid{grid-template-columns:1fr}.guide-card p{min-height:0}.detail-grid-inner{grid-template-columns:1fr 1fr}.inline-detail-inner{padding:13px}.optional-detail{grid-template-columns:1fr}.optional-detail small{grid-column:auto}.reagent-item{padding:14px 10px;gap:7px}.reagent-badge{font-size:9px;padding:4px 7px}}
