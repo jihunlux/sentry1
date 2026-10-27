@@ -30,12 +30,14 @@
     restartSlideTimer();
   }
   function restartSlideTimer() { clearInterval(slideTimer); slideTimer = setInterval(() => setSlide(slideIndex + 1), 5000); }
+  if ($("prevSlide")) {
   $("prevSlide").addEventListener("click", () => setSlide(slideIndex - 1));
   $("nextSlide").addEventListener("click", () => setSlide(slideIndex + 1));
   document.querySelectorAll(".dot").forEach(dot => dot.addEventListener("click", () => setSlide(Number(dot.dataset.slide))));
   const visual = document.querySelector(".hero-visual"); let touchX = null;
   visual.addEventListener("touchstart", e => { touchX = e.changedTouches[0].clientX; }, { passive:true });
   visual.addEventListener("touchend", e => { if (touchX === null) return; const dx = e.changedTouches[0].clientX - touchX; if (Math.abs(dx) > 45) setSlide(slideIndex + (dx < 0 ? 1 : -1)); touchX = null; }, { passive:true });
+  }
   $("mobileMenu").addEventListener("click", () => $("topNav").classList.toggle("open"));
   // Add a stable id for the navigation lookup without requiring framework code.
   const nav = document.querySelector(".top-nav"); nav.id = "topNav";
@@ -115,10 +117,10 @@
     if (!item.name) { showToast("시약 이름을 입력해 주세요."); return; }
     const items = loadReagents(); items.push(item);
     if (!saveReagents(items)) return;
-    renderDashboard(); renderAnalysis(item);
+    if ($("totalReagents")) renderDashboard(); renderAnalysis(item);
     event.target.reset();
     showToast("시약이 등록되었습니다. 분석 결과는 입력 정보 기반의 참고 안내입니다.");
   });
-  renderDashboard();
-  restartSlideTimer();
+  if ($("totalReagents")) renderDashboard();
+  if ($("prevSlide")) restartSlideTimer();
 })();

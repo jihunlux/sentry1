@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#6689B8"><title>시약 등록 | SENTRY</title><link rel="stylesheet" href="styles.css"></head><body>
+<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">S</span><span><strong>SENTRY</strong><small>CHEMICAL MONITORING SYSTEM</small></span></a><nav class="top-nav" id="topNav"><a href="my-sentry.html">나의 SENTRY</a><a href="register.html">시약 등록</a><a href="index.html">홈</a></nav><button class="mobile-menu" id="mobileMenu" aria-label="메뉴 열기">☰</button></header>
+<main><div class="section" style="padding-top:48px"><div class="section-heading"><div><p class="eyebrow">REAGENT WORKSPACE</p><h1 style="font-size:32px;margin:0 0 8px">시약 등록</h1><p class="muted">시약 정보를 입력하고 보관 확인 항목과 추가 센서 후보를 확인합니다.</p></div><a class="button secondary small" href="my-sentry.html">나의 SENTRY로 돌아가기</a></div><section class="section register-section" id="register">
+      <div class="section-heading">
+        <div><p class="eyebrow">REAGENT PROFILE</p><h2>시약 등록 및 분석</h2><p class="muted">시약 정보를 입력하면 기본 관리 항목과 추가 센서 후보를 안내합니다.</p></div>
+      </div>
+      <div class="register-layout">
+        <form id="reagentForm" class="panel form-panel">
+          <div class="form-section-title"><span>01</span><div><h3>시약 기본 정보</h3><p>예시는 참고용이며 직접 입력할 수 있습니다.</p></div></div>
+          <label>시약 이름 <span class="required">*</span><input id="reagentName" required placeholder="예: 아세트산"></label>
+          <label>분자식 또는 화학식 <input id="formula" placeholder="예: CH₃COOH"></label>
+          <div class="form-row">
+            <label>물질 형태
+              <select id="formType"><option value="">선택 안 함</option><option value="solid">고체</option><option value="liquid">액체·용액</option><option value="gas">기체</option><option value="unknown">모름</option></select>
+            </label>
+            <label>농도·순도 <input id="concentration" placeholder="예: 1 mol/L, 99%"></label>
+          </div>
+          <label>보관 조건 <input id="storage" placeholder="예: 실온, 직사광선 차단 (확인한 내용만 입력)"></label>
+          <label>보관 위치 <input id="location" placeholder="예: 시약장 A-02, 냉장고 1번 선반"></label>
+          <label>용기·기타 메모 <textarea id="notes" rows="3" placeholder="용기 종류, 라벨 내용, SDS 확인 사항 등"></textarea></label>
+          <button class="button primary submit-button" type="submit">시약 분석 및 등록 <span>↗</span></button>
+          <p class="form-footnote">이 웹페이지는 입력한 정보를 브라우저에 저장합니다. 외부 화학 데이터베이스에 자동 연결되어 있지는 않습니다.</p>
+        </form>
+        <aside class="panel analysis-panel" id="analysisPanel">
+          <div class="analysis-heading"><span class="analysis-symbol">✳</span><div><p class="eyebrow">SENTRY ANALYSIS</p><h3>분석 결과 미리보기</h3></div></div>
+          <div class="analysis-placeholder"><div class="placeholder-symbol">⌁</div><b>시약 정보를 입력해 주세요</b><p>등록 후 입력 정보에 기반한 확인 항목과 센서 후보를 확인할 수 있습니다.</p></div>
+          <div class="sensor-recommendations" id="sensorRecommendations"></div>
+        </aside>
+      </div>
+    </section></div></main><div class="toast" id="toast" role="status" aria-live="polite"></div><script src="app.js"></script></body></html>
