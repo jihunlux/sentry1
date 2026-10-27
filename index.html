@@ -15,7 +15,7 @@
       <span><strong>SENTRY</strong><small>CHEMICAL MONITORING SYSTEM</small></span>
     </a>
     <nav class="top-nav" aria-label="주 메뉴">
-      <a href="#dashboard">대시보드</a>
+      <a href="my-sentry.html">나의 센트리</a>
       <a href="#register">시약 등록</a>
       <a href="#sensors">센서 안내</a>
     </nav>
@@ -29,7 +29,7 @@
         <h1 id="heroTitle">시약의 보관 환경을<br><span>더 체계적으로</span> 관리하다</h1>
         <p id="heroDescription">시약별 보관 조건과 센서 정보를 한곳에서 확인하고, 필요한 관리 항목을 놓치지 않도록 도와줍니다.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#dashboard">대시보드 보기 <span>↗</span></a>
+          <a class="button primary" href="my-sentry.html">나의 센트리 <span>↗</span></a>
           <a class="button secondary" href="#register">시약 등록하기</a>
         </div>
         <div class="hero-dots" id="heroDots" aria-label="소개 슬라이드 선택">
@@ -40,19 +40,13 @@
       </div>
       <div class="hero-visual">
         <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
-        <div class="visual-card main-visual-card">
-          <div class="visual-card-top"><span class="mini-icon">⌁</span><span class="status-pill">MONITORING</span></div>
-          <div class="flask-wrap"><div class="flask-neck"></div><div class="flask-body"><div class="liquid"></div><span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span></div></div>
-          <h3>Reagent Environment</h3>
-          <p>환경 정보와 보관 조건을 함께 확인하세요.</p>
-          <div class="visual-meter"><span></span></div>
-          <div class="visual-foot"><span>환경 모니터링 개념도</span><span>01 / 03</span></div>
-        </div>
-        <div class="float-card float-top"><span class="float-icon">℃</span><span><b>온도</b><small>센서 연결 시 측정</small></span></div>
-        <div class="float-card float-bottom"><span class="float-icon">↗</span><span><b>시약별 분석</b><small>맞춤형 관리 안내</small></span></div>
+        <div class="hero-product-image"><img src="assets/sentry-smart-reagent-bottle.png" alt="SENTRY 스마트 시약병 센서 캡 제품 콘셉트"></div>
+        <div class="float-card float-top"><span class="float-icon">℃</span><span><b>환경 모니터링</b><small>센서 연결 시 측정</small></span></div>
+        <div class="float-card float-bottom"><span class="float-icon">↗</span><span><b>시약별 센서 추천</b><small>입력 정보 기반 안내</small></span></div>
         <button class="hero-arrow prev" id="prevSlide" aria-label="이전 슬라이드">‹</button>
         <button class="hero-arrow next" id="nextSlide" aria-label="다음 슬라이드">›</button>
       </div>
+
     </section>
 
     <section class="trust-strip" aria-label="핵심 기능">
@@ -100,6 +94,7 @@
             <label>농도·순도 <input id="concentration" placeholder="예: 1 mol/L, 99%"></label>
           </div>
           <label>보관 조건 <input id="storage" placeholder="예: 실온, 직사광선 차단 (확인한 내용만 입력)"></label>
+          <label>보관 위치 <input id="location" placeholder="예: 시약장 A-02, 냉장고 1번 선반"></label>
           <label>용기·기타 메모 <textarea id="notes" rows="3" placeholder="용기 종류, 라벨 내용, SDS 확인 사항 등"></textarea></label>
           <button class="button primary submit-button" type="submit">시약 분석 및 등록 <span>↗</span></button>
           <p class="form-footnote">이 웹페이지는 입력한 정보를 브라우저에 저장합니다. 외부 화학 데이터베이스에 자동 연결되어 있지는 않습니다.</p>

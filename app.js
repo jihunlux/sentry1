@@ -15,8 +15,15 @@
   }
   function setSlide(index) {
     slideIndex = (index + slides.length) % slides.length;
-    $("heroTitle").innerHTML = slides[slideIndex].title;
-    $("heroDescription").textContent = slides[slideIndex].description;
+    const copy = document.querySelector(".hero-copy");
+    copy.classList.remove("show");
+    copy.classList.add("slide-transition");
+    window.setTimeout(() => {
+      $("heroTitle").innerHTML = slides[slideIndex].title;
+      $("heroDescription").textContent = slides[slideIndex].description;
+      copy.classList.remove("slide-transition");
+      copy.classList.add("show");
+    }, 120);
     document.querySelectorAll(".dot").forEach((dot, i) => dot.classList.toggle("active", i === slideIndex));
     const foot = document.querySelector(".visual-foot span:last-child");
     if (foot) foot.textContent = `0${slideIndex + 1} / 0${slides.length}`;
@@ -102,7 +109,7 @@
       id: (crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()),
       name: $("reagentName").value.trim(), formula: $("formula").value.trim(),
       formType: $("formType").value, concentration: $("concentration").value.trim(),
-      storage: $("storage").value.trim(), notes: $("notes").value.trim(),
+      storage: $("storage").value.trim(), location: $("location").value.trim(), notes: $("notes").value.trim(),
       createdAt: new Date().toISOString(), lastOpened: null
     };
     if (!item.name) { showToast("시약 이름을 입력해 주세요."); return; }
