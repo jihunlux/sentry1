@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6689B8">
+  <meta name="description" content="SENTRY — 시약 보관 환경과 센서 상태를 관리하는 화학 연구 보조 시스템">
+  <title>SENTRY | Chemical Monitoring System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="SENTRY 홈">
+      <span class="brand-mark">S</span>
+      <span><strong>SENTRY</strong><small>CHEMICAL MONITORING SYSTEM</small></span>
+    </a>
+    <nav class="top-nav" aria-label="주 메뉴">
+      <a href="#dashboard">대시보드</a>
+      <a href="#register">시약 등록</a>
+      <a href="#sensors">센서 안내</a>
+    </nav>
+    <button class="mobile-menu" id="mobileMenu" aria-label="메뉴 열기">☰</button>
+  </header>
+
+  <main id="home">
+    <section class="hero" aria-label="SENTRY 소개">
+      <div class="hero-copy">
+        <p class="eyebrow">SMART REAGENT MONITORING</p>
+        <h1 id="heroTitle">시약의 보관 환경을<br><span>더 체계적으로</span> 관리하다</h1>
+        <p id="heroDescription">시약별 보관 조건과 센서 정보를 한곳에서 확인하고, 필요한 관리 항목을 놓치지 않도록 도와줍니다.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#dashboard">대시보드 보기 <span>↗</span></a>
+          <a class="button secondary" href="#register">시약 등록하기</a>
+        </div>
+        <div class="hero-dots" id="heroDots" aria-label="소개 슬라이드 선택">
+          <button class="dot active" aria-label="1번 슬라이드" data-slide="0"></button>
+          <button class="dot" aria-label="2번 슬라이드" data-slide="1"></button>
+          <button class="dot" aria-label="3번 슬라이드" data-slide="2"></button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+        <div class="visual-card main-visual-card">
+          <div class="visual-card-top"><span class="mini-icon">⌁</span><span class="status-pill">MONITORING</span></div>
+          <div class="flask-wrap"><div class="flask-neck"></div><div class="flask-body"><div class="liquid"></div><span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span></div></div>
+          <h3>Reagent Environment</h3>
+          <p>환경 정보와 보관 조건을 함께 확인하세요.</p>
+          <div class="visual-meter"><span></span></div>
+          <div class="visual-foot"><span>환경 모니터링 개념도</span><span>01 / 03</span></div>
+        </div>
+        <div class="float-card float-top"><span class="float-icon">℃</span><span><b>온도</b><small>센서 연결 시 측정</small></span></div>
+        <div class="float-card float-bottom"><span class="float-icon">↗</span><span><b>시약별 분석</b><small>맞춤형 관리 안내</small></span></div>
+        <button class="hero-arrow prev" id="prevSlide" aria-label="이전 슬라이드">‹</button>
+        <button class="hero-arrow next" id="nextSlide" aria-label="다음 슬라이드">›</button>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="핵심 기능">
+      <div><span class="strip-icon">◷</span><span><b>개폐 기록</b><small>용기 개폐 이력 관리</small></span></div>
+      <div><span class="strip-icon">⌁</span><span><b>환경 모니터링</b><small>온도와 습도 확인</small></span></div>
+      <div><span class="strip-icon">✳</span><span><b>센서 맞춤 추천</b><small>시약 특성 기반 안내</small></span></div>
+    </section>
+
+    <section class="section dashboard-section" id="dashboard">
+      <div class="section-heading">
+        <div><p class="eyebrow">OVERVIEW</p><h2>시약 관리 대시보드</h2><p class="muted">등록한 시약과 추가 확인이 필요한 항목을 관리합니다.</p></div>
+        <a class="button primary small" href="#register">＋ 시약 등록</a>
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card"><span class="stat-label">등록 시약</span><strong id="totalReagents">0</strong><span class="stat-note">현재 브라우저에 저장된 시약</span></article>
+        <article class="stat-card"><span class="stat-label">확인 필요</span><strong id="needsReview">0</strong><span class="stat-note">보관 조건 확인이 필요한 항목</span></article>
+        <article class="stat-card"><span class="stat-label">기본 센서</span><strong>3종</strong><span class="stat-note">온도 · 개폐 · 습도</span></article>
+      </div>
+      <div class="dashboard-grid">
+        <article class="panel reagent-panel">
+          <div class="panel-heading"><div><h3>등록 시약</h3><p class="muted">최근 등록한 시약부터 표시됩니다.</p></div><span class="panel-icon">▤</span></div>
+          <div id="reagentList" class="reagent-list"><div class="empty-state"><span>⌕</span><b>등록된 시약이 없습니다</b><p>시약 등록 메뉴에서 첫 시약을 추가해 보세요.</p></div></div>
+        </article>
+        <article class="panel review-panel">
+          <div class="panel-heading"><div><h3>확인 필요 항목</h3><p class="muted">정보가 충분하지 않은 항목입니다.</p></div><span class="panel-icon warning">!</span></div>
+          <div id="reviewList" class="review-list"><div class="empty-state compact"><span>✓</span><b>확인할 항목이 없습니다</b><p>시약을 등록하면 이곳에 표시됩니다.</p></div></div>
+          <div class="notice-box"><span>ⓘ</span><p>분석 안내는 참고 정보입니다. 실제 보관 조건은 제품 라벨과 최신 SDS를 확인하세요.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section register-section" id="register">
+      <div class="section-heading">
+        <div><p class="eyebrow">REAGENT PROFILE</p><h2>시약 등록 및 분석</h2><p class="muted">시약 정보를 입력하면 기본 관리 항목과 추가 센서 후보를 안내합니다.</p></div>
+      </div>
+      <div class="register-layout">
+        <form id="reagentForm" class="panel form-panel">
+          <div class="form-section-title"><span>01</span><div><h3>시약 기본 정보</h3><p>예시는 참고용이며 직접 입력할 수 있습니다.</p></div></div>
+          <label>시약 이름 <span class="required">*</span><input id="reagentName" required placeholder="예: 아세트산"></label>
+          <label>분자식 또는 화학식 <input id="formula" placeholder="예: CH₃COOH"></label>
+          <div class="form-row">
+            <label>물질 형태
+              <select id="formType"><option value="">선택 안 함</option><option value="solid">고체</option><option value="liquid">액체·용액</option><option value="gas">기체</option><option value="unknown">모름</option></select>
+            </label>
+            <label>농도·순도 <input id="concentration" placeholder="예: 1 mol/L, 99%"></label>
+          </div>
+          <label>보관 조건 <input id="storage" placeholder="예: 실온, 직사광선 차단 (확인한 내용만 입력)"></label>
+          <label>용기·기타 메모 <textarea id="notes" rows="3" placeholder="용기 종류, 라벨 내용, SDS 확인 사항 등"></textarea></label>
+          <button class="button primary submit-button" type="submit">시약 분석 및 등록 <span>↗</span></button>
+          <p class="form-footnote">이 웹페이지는 입력한 정보를 브라우저에 저장합니다. 외부 화학 데이터베이스에 자동 연결되어 있지는 않습니다.</p>
+        </form>
+        <aside class="panel analysis-panel" id="analysisPanel">
+          <div class="analysis-heading"><span class="analysis-symbol">✳</span><div><p class="eyebrow">SENTRY ANALYSIS</p><h3>분석 결과 미리보기</h3></div></div>
+          <div class="analysis-placeholder"><div class="placeholder-symbol">⌁</div><b>시약 정보를 입력해 주세요</b><p>등록 후 입력 정보에 기반한 확인 항목과 센서 후보를 확인할 수 있습니다.</p></div>
+          <div class="sensor-recommendations" id="sensorRecommendations"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section sensor-section" id="sensors">
+      <div class="section-heading"><div><p class="eyebrow">SENSOR SYSTEM</p><h2>센서 구성</h2><p class="muted">기본 센서는 고정이며, 추가 모듈은 측정 대상과 호환성을 확인한 뒤 선택합니다.</p></div></div>
+      <div class="sensor-grid">
+        <article class="sensor-card fixed"><div class="sensor-card-top"><span class="sensor-symbol">℃</span><span class="tag fixed-tag">기본 센서</span></div><h3>온도 센서</h3><p>보관 환경의 온도를 측정합니다. 허용 범위는 시약별 보관 지침을 확인해 설정해야 합니다.</p><div class="sensor-line"><span></span></div></article>
+        <article class="sensor-card fixed"><div class="sensor-card-top"><span class="sensor-symbol">↻</span><span class="tag fixed-tag">기본 센서</span></div><h3>용기 개폐 감지</h3><p>용기가 열린 시점과 닫힌 시점을 기록합니다. 실제 기록에는 호환되는 감지 하드웨어가 필요합니다.</p><div class="sensor-line"><span></span></div></article>
+        <article class="sensor-card fixed"><div class="sensor-card-top"><span class="sensor-symbol">◌</span><span class="tag fixed-tag">기본 센서</span></div><h3>습도 센서</h3><p>주변 상대습도를 측정합니다. 주변 습도와 시약 자체의 수분 함량은 서로 다른 값입니다.</p><div class="sensor-line"><span></span></div></article>
+        <article class="sensor-card optional"><div class="sensor-card-top"><span class="sensor-symbol">☼</span><span class="tag optional-tag">선택형 모듈</span></div><h3>광학 센서</h3><p>빛 노출을 확인하는 용도입니다. 시약에 맞는 파장과 노출 기준을 별도로 검토해야 합니다.</p><div class="sensor-line"><span></span></div></article>
+        <article class="sensor-card optional"><div class="sensor-card-top"><span class="sensor-symbol">⌁</span><span class="tag optional-tag">선택형 모듈</span></div><h3>전기화학 센서</h3><p>특정 물질이나 전기화학적 지표에 사용할 수 있습니다. 모든 시약에 범용으로 적용되지는 않습니다.</p><div class="sensor-line"><span></span></div></article>
+        <article class="sensor-card optional"><div class="sensor-card-top"><span class="sensor-symbol">◉</span><span class="tag optional-tag">선택형 모듈</span></div><h3>전용 가스 센서</h3><p>특정 기체를 감지합니다. 대상 기체, 농도 범위, 간섭 물질에 맞는 센서를 골라야 합니다.</p><div class="sensor-line"><span></span></div></article>
+      </div>
+      <div class="food-extension"><div class="food-icon">✳</div><div><p class="eyebrow">FUTURE EXTENSION</p><h3>식품 산패 측정으로 확장</h3><p>식품 산패는 온도·습도만으로 확정할 수 없습니다. 산패 관련 지표를 직접 측정하는 검증된 센서 모듈과 비교 실험이 필요합니다.</p></div><span class="extension-tag">확장 연구</span></div>
+    </section>
+    <footer class="site-footer"><a class="brand footer-brand" href="#home"><span class="brand-mark">S</span><span><strong>SENTRY</strong><small>CHEMICAL MONITORING SYSTEM</small></span></a><p>시약 관리를 위한 연구 보조 프로토타입</p><p class="footer-disclaimer">측정값 및 보관 조건은 실제 하드웨어 연결과 검증된 자료 확인 전까지 확정 정보로 취급하지 마세요.</p></footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
