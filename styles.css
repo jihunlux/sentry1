@@ -76,3 +76,6 @@
 .sensor-guide-grid .guide-card:nth-child(4) .guide-icon{background:#F7F0E8;color:#A8794A}
 @media(max-width:620px){.sensor-guide{padding:42px 20px}.sensor-guide .section-heading h2{font-size:23px}.guide-card{padding:18px}.guide-card p{min-height:0}}
 .review-dot{background:#C94E49}
+
+/* Reagent delete action */
+.button.danger{background:#b84242;color:#fff;border:1px solid #b84242}.button.danger:hover{background:#9f3434}.detail-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}.detail-actions>span{font-size:11px;color:var(--muted)}
